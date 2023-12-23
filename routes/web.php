@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleUserController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\TagController;
 use App\Http\Requests\CategorieFormRequest;
@@ -52,3 +53,11 @@ Route::prefix('/categories')->name('categories.')->controller(CategorieControlle
     Route::post('/create', 'store')->name('store');
     Route::get('', 'index')->name('index');
 });
+
+Route::get('/register', [AuthController::class, 'create'])->name("register");
+Route::post('/register', [AuthController::class, 'store']);
+
+Route::get('/login', [AuthController::class, 'login'])->name("login");
+Route::post('/login', [AuthController::class, 'doLogin']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name("logout");
