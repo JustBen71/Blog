@@ -11,7 +11,7 @@ class ArticleFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,11 +22,10 @@ class ArticleFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titrearticle' => 'required|string',
-            'descriptionarticle' => 'required|string',
-            'user_id' => 'required|exists:users,id',
+            'titreArticle' => 'required|string',
+            'contenuArticle' => 'required|string',
             'tags' => 'required|array|exists:tags,id',
-            'category_id' => 'required|exists:catgories|id',
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }

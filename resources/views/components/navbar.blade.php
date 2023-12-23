@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{route("accueil.home")}}"><img height="48" width="48" src="{{ asset('img/mickey.jpg') }}"/></a>
+        <a class="navbar-brand" href="{{route("accueil.home")}}"><img height="48" width="48" src="{{ asset('img/frog.png') }}"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,7 +16,7 @@
                     <a class="nav-link" href="{{route("articles.new")}}">Gestion de nos articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("categories.new")}}">Gestion des catégories</a>
+                    <a class="nav-link" href="{{route("categories.index")}}">Gestion des catégories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("tags.new")}}">Gestion des tags</a>

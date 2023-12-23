@@ -26,12 +26,12 @@ Route::prefix('/')->name('accueil.')->controller(AccueilController::class)->grou
 });
 
 Route::prefix('/articles')->name('articles.')->controller(ArticleController::class)->group( function() {
+    Route::post('/create', 'store')->name('store')->middleware("auth");
     Route::get('/new', 'create')->name('new')->middleware("auth");
     Route::get('/{article}', 'show')->where(['id' => '[0-9]+'])->name('show');
     Route::get('/edit/{article}','edit')->name('edit')->middleware("auth");
     Route::put('/edit/save/{article}', 'update')->name('update')->middleware("auth");
     Route::delete('/{article}', 'destroy')->name('delete')->middleware("auth");
-    Route::post('/create', 'store')->name('store')->middleware("auth");
     Route::get('', 'index')->name('index');
 });
 

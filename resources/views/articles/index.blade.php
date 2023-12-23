@@ -4,7 +4,7 @@
 
 @section('contenu')
     <div class="container">
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-4">
                 <input class="form-control" type="search" placeholder="Titre de l'article ..."/>
             </div>
@@ -21,32 +21,36 @@
                     </div>
                 @endif
                 @if($i % 4 == 0)
-                    <div class="row">
+                    <div class="row mt-2">
                         <div class="col-3">
                             <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                                <div class="card-header bg-transparent border-secondary text-center">{{$articles[$i]->titrearticle}} <br><span class="blockquote-footer">Age requis : {{$articles[$i]->ageviser}}</span></div>
+                                <div class="card-header bg-transparent border-secondary text-center">{{$articles[$i]->titreArticle}}
+                                    @foreach($articles[$i]->tags as $tag)
+                                        <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
+                                    @endforeach
+                                </div><br>
                                 <div class="card-body">
-
                                     @foreach($articles[$i]->tags as $tag)
                                         <span class="badge rounded-pill text-bg-danger">{{$tag->name}}</span>
                                     @endforeach
                                     <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p>
                                     <a href="{{route('articles.show', ["article" => $articles[$i]])}}" class="stretched-link"></a>
                                 </div>
-                                <div class="card-footer bg-transparent border-secondary">{{$articles[$i]->user ? $articles[$i]->user->prenom : "Utilisateur inconnue"}} {{$articles[$i]->user ? $articles[$i]->user->nom : ""}} <img class="image-profile" style=" height: 20px; border-radius: 50%;" src="{{$articles[$i]->user ? '/'.$articles[$i]->user->image : ''}}" /></div>
+                                <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
                             </div>
                         </div>
-                        @else
+                @else
                             <div class="col-3">
                                 <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                                    <div class="card-header bg-transparent border-secondary text-center">{{$articles[$i]->titrearticle}}<br><span class="blockquote-footer">Age requis : {{$articles[$i]->ageviser}}</span></div>
-                                    <div class="card-body">
+                                    <div class="card-header bg-transparent border-secondary text-center">{{$articles[$i]->titreArticle}}
                                         @foreach($articles[$i]->tags as $tag)
-                                            <span class="badge rounded-pill text-bg-danger">{{$tag->name}}</span>
+                                            <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
                                         @endforeach
-                                        <p class="card-text">{!! $articles[$i]->descriptionarticle !!}</p><a href="{{route('articles.show', ["article" => $articles[$i]])}}" class="stretched-link"></a>
+                                    </div><br>
+                                    <div class="card-body">
+                                        <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p><a href="{{route('articles.show', ["article" => $articles[$i]])}}" class="stretched-link"></a>
                                     </div>
-                                    <div class="card-footer bg-transparent border-secondary">{{$articles[$i]->user ? $articles[$i]->user->prenom : "Utilisateur inconnue"}} {{$articles[$i]->user ? $articles[$i]->user->nom : ""}} <img class="image-profile" style=" height: 20px; border-radius: 50%;" src="{{$articles[$i]->user ? '/'.$articles[$i]->user->image : ''}}"/></div>
+                                    <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
                                 </div>
                             </div>
                        @endif

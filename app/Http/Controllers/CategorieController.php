@@ -35,12 +35,9 @@ class CategorieController extends Controller
      */
     public function store(CategorieFormRequest $request)
     {
-        $article = Categorie::create([
+        $categorie = Categorie::create([
             'intituleCategorie' => $request->input('intituleCategorie'),
-            'user_id' => Auth::user(),
-            'categorie_id' => $request->input('categorie'),
         ]);
-        $article->tags()->sync($request->input('tags[]'));
         return redirect()->route('home')->with('success', 'La catégorie a bien été crée');
     }
 
@@ -67,11 +64,8 @@ class CategorieController extends Controller
     {
         $categorie->update([
             'intituleCategorie' => $request->input('intituleCategorie'),
-            'user_id' => Auth::user(),
-            'categorie_id' => $request->input('categorie'),
         ]);
-        $article->tags()->sync($request->input('tags[]'));
-        return redirect()->route('categorie.show', ['categorie' => $categorie->id])->with('success', 'La catégorie a bien été modifié');
+        return redirect()->route('categories.show', ['categorie' => $categorie->id])->with('success', 'La catégorie a bien été modifié');
     }
 
     /**
@@ -80,6 +74,6 @@ class CategorieController extends Controller
     public function destroy(Categorie $categorie)
     {
         $categorie->delete();
-        return redirect()->route('categorie.index', ["articles" => Article::all()])->with('success', 'La catégorie a bien été supprimé');;
+        return redirect()->route('categories.index', ["articles" => Article::all()])->with('success', 'La catégorie a bien été supprimé');;
     }
 }

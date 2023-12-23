@@ -7,18 +7,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-9">
-                            <label for="titrearticle">Titre : </label>
-                            <input class="form-control" type="text" id="titrearticle" name="titrearticle" value="{{old('titrearticle') ? '' : $article->titrearticle}}">
-                            @error('titrearticle')
+                            <label for="titreArticle">Titre : </label>
+                            <input class="form-control" type="text" id="titreArticle" name="titreArticle" value="{{old('titreArticle') ? '' : $article->titreArticle}}">
+                            @error('titreArticle')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <label for="descriptionarticle">Description : </label>
-                            <textarea id="editor" name="descriptionarticle">{{ old('descriptionarticle', $article->descriptionarticle ?? '') }}</textarea>
-                            @error('descriptionarticle')
+                            <label for="contenuArticle">Description : </label>
+                            <textarea id="editor" name="contenuArticle">{{ old('contenuArticle', $article->contenuArticle ?? '') }}</textarea>
+                            @error('contenuArticle')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>
@@ -27,7 +27,20 @@
             </div>
             <div class="col-4">
                 <div class="container">
-                    <h5 class="mt-1">Les tags</h5>
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Catégorie</label>
+                            <select class="form-control" name="category_id">
+                                @foreach($categories as $categorie)
+                                    <option value="{{$categorie->id}}">{{$categorie->intituleCategorie}}</option>
+                                @endforeach
+                            </select>
+                            @error('categorie')
+                            <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <label class="mt-1">Les tags</label>
                     @foreach($tags as $tag)
                         <div class="row">
                             <div class="col-12">
