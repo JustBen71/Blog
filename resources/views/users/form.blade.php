@@ -4,16 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-4">
-                <label for="nomUtilisateur">Nom : </label>
+                <label for="nomUtilisateur">Nom d'utilisateur : </label>
                 <input class="form-control" type="text" id="nomUtilisateur" name="nomUtilisateur" value="{{old('nomUtilisateur') ? '' : $user->nomUtilisateur}}">
                 @error('nomUtilisateur')
-                <div class="alert alert-danger">{{$message}}</div>
-                @enderror
-            </div>
-            <div class="col-4">
-                <label for="prenom">Prénom : </label>
-                <input class="form-control" type="text" id="prenom" name="prenom" value="{{old('prenom')? '': $user->prenom}}">
-                @error('prenom')
                 <div class="alert alert-danger">{{$message}}</div>
                 @enderror
             </div>
@@ -30,9 +23,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <label for="passwordUtilisateur">Password : </label>
-                            <input class="form-control" type="password" id="passwordUtilisateur" name="passwordUtilisateur" value="">
-                            @error('passwordUtilisateur')
+                            <label for="password">Password : </label>
+                            <input class="form-control" type="password" id="password" name="password" value="">
+                            @error('password')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>

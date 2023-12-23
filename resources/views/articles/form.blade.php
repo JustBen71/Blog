@@ -13,13 +13,6 @@
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>
-                        <div class="col-3">
-                            <label for="ageviser">Age requis :</label>
-                            <input class="form-control" type="number" id="ageviser" name="ageviser" value="{{old('ageviser') ? '' : $article->ageviser}}"/>
-                            @error('ageviser')
-                            <div class="alert alert-danger">{{$message}}</div>
-                            @enderror
-                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
@@ -34,23 +27,11 @@
             </div>
             <div class="col-4">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="user_id">Proprietaire : </label>
-                            <select class="form-control" name="user_id" id="user_id">
-                                @foreach($users as $user)
-                                    <option value="{{$user->id}}" @selected(old('user_id', $article->user_id) == $user->id) >{{$user->prenom}} {{$user->nom}}</option>
-                                @endforeach
-                            </select>
-                            @error('user_id')
-                            <div class="alert alert-danger">{{$message}}</div>
-                            @enderror
-                        </div>
-                    </div>
+                    <h5 class="mt-1">Les tags</h5>
                     @foreach($tags as $tag)
                         <div class="row">
                             <div class="col-12">
-                                <label>{{$tag->name}}</label>
+                                <label>{{$tag->intituleTag}}</label>
                                 <input type="checkbox" name="tags[]" value="{{ $tag->id }}" {{ $article->tags->contains($tag) ? 'checked' : '' }}>
                             </div>
                         </div>

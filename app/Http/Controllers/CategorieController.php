@@ -9,6 +9,7 @@ use App\Models\Categorie;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CategorieController extends Controller
@@ -35,9 +36,11 @@ class CategorieController extends Controller
     public function store(CategorieFormRequest $request)
     {
         $article = Categorie::create([
-            'intituleCategorie' => $request->input('intituleCategorie')
+            'intituleCategorie' => $request->input('intituleCategorie'),
+            'user_id' => Auth::user(),
+            'categorie_id' => $request->input('categorie'),
         ]);
-
+        $article->tags()->sync($request->input('tags[]'));
         return redirect()->route('home')->with('success', 'La catégorie a bien été crée');
     }
 
@@ -64,8 +67,10 @@ class CategorieController extends Controller
     {
         $categorie->update([
             'intituleCategorie' => $request->input('intituleCategorie'),
+            'user_id' => Auth::user(),
+            'categorie_id' => $request->input('categorie'),
         ]);
-
+        $article->tags()->sync($request->input('tags[]'));
         return redirect()->route('categorie.show', ['categorie' => $categorie->id])->with('success', 'La catégorie a bien été modifié');
     }
 

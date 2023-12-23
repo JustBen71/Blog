@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleUserController;
 use App\Http\Controllers\AuthController;
@@ -20,37 +21,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil.index');
-})->name('home');
+Route::prefix('/')->name('accueil.')->controller(AccueilController::class)->group( function() {
+    Route::get('', 'index')->name('home');
+});
 
 Route::prefix('/articles')->name('articles.')->controller(ArticleController::class)->group( function() {
-    Route::get('/new', 'create')->name('new');
+    Route::get('/new', 'create')->name('new')->middleware("auth");
     Route::get('/{article}', 'show')->where(['id' => '[0-9]+'])->name('show');
-    Route::get('/edit/{article}','edit')->name('edit');
-    Route::put('/edit/save/{article}', 'update')->name('update');
-    Route::delete('/{article}', 'destroy')->name('delete');
-    Route::post('/create', 'store')->name('store');
+    Route::get('/edit/{article}','edit')->name('edit')->middleware("auth");
+    Route::put('/edit/save/{article}', 'update')->name('update')->middleware("auth");
+    Route::delete('/{article}', 'destroy')->name('delete')->middleware("auth");
+    Route::post('/create', 'store')->name('store')->middleware("auth");
     Route::get('', 'index')->name('index');
 });
 
 Route::prefix('/tags')->name('tags.')->controller(TagController::class)->group( function() {
-    Route::get('/new', 'create')->name('new');
+    Route::get('/new', 'create')->name('new')->middleware("auth");
     Route::get('/{tag}', 'show')->where(['id' => '[0-9]+'])->name('show');
-    Route::get('/edit/{tag}','edit')->name('edit');
-    Route::put('/edit/save/{tag}', 'update')->name('update');
-    Route::delete('/{tag}', 'destroy')->name('delete');
-    Route::post('/create', 'store')->name('store');
+    Route::get('/edit/{tag}','edit')->name('edit')->middleware("auth");
+    Route::put('/edit/save/{tag}', 'update')->name('update')->middleware("auth");
+    Route::delete('/{tag}', 'destroy')->name('delete')->middleware("auth");
+    Route::post('/create', 'store')->name('store')->middleware("auth");
     Route::get('', 'index')->name('index');
 });
 
 Route::prefix('/categories')->name('categories.')->controller(CategorieController::class)->group( function() {
-    Route::get('/new', 'create')->name('new');
+    Route::get('/new', 'create')->name('new')->middleware("auth");
     Route::get('/{categorie}', 'show')->where(['id' => '[0-9]+'])->name('show');
-    Route::get('/edit/{categorie}','edit')->name('edit');
-    Route::put('/edit/save/{categorie}', 'update')->name('update');
-    Route::delete('/{categorie}', 'destroy')->name('delete');
-    Route::post('/create', 'store')->name('store');
+    Route::get('/edit/{categorie}','edit')->name('edit')->middleware("auth");
+    Route::put('/edit/save/{categorie}', 'update')->name('update')->middleware("auth");
+    Route::delete('/{categorie}', 'destroy')->name('delete')->middleware("auth");
+    Route::post('/create', 'store')->name('store')->middleware("auth");
     Route::get('', 'index')->name('index');
 });
 
