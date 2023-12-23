@@ -13,13 +13,13 @@
                     <a class="nav-link" href="{{route("articles.index")}}">Consulter les articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("articles.new")}}">Créer un article</a>
+                    <a class="nav-link" href="{{route("articles.new")}}">Gestion de nos articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("categories.new")}}">Crée une catégorie</a>
+                    <a class="nav-link" href="{{route("categories.new")}}">Gestion des catégories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("tags.new")}}">Crée un tag</a>
+                    <a class="nav-link" href="{{route("tags.new")}}">Gestion des tags</a>
                 </li>
             </ul>
         </div>

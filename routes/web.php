@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleUserController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\TagController;
+use App\Http\Requests\CategorieFormRequest;
+use App\Http\Requests\TagFormRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +29,26 @@ Route::prefix('/articles')->name('articles.')->controller(ArticleController::cla
     Route::get('/edit/{article}','edit')->name('edit');
     Route::put('/edit/save/{article}', 'update')->name('update');
     Route::delete('/{article}', 'destroy')->name('delete');
+    Route::post('/create', 'store')->name('store');
+    Route::get('', 'index')->name('index');
+});
+
+Route::prefix('/tags')->name('tags.')->controller(TagController::class)->group( function() {
+    Route::get('/new', 'create')->name('new');
+    Route::get('/{tag}', 'show')->where(['id' => '[0-9]+'])->name('show');
+    Route::get('/edit/{tag}','edit')->name('edit');
+    Route::put('/edit/save/{tag}', 'update')->name('update');
+    Route::delete('/{tag}', 'destroy')->name('delete');
+    Route::post('/create', 'store')->name('store');
+    Route::get('', 'index')->name('index');
+});
+
+Route::prefix('/categories')->name('categories.')->controller(CategorieController::class)->group( function() {
+    Route::get('/new', 'create')->name('new');
+    Route::get('/{categorie}', 'show')->where(['id' => '[0-9]+'])->name('show');
+    Route::get('/edit/{categorie}','edit')->name('edit');
+    Route::put('/edit/save/{categorie}', 'update')->name('update');
+    Route::delete('/{categorie}', 'destroy')->name('delete');
     Route::post('/create', 'store')->name('store');
     Route::get('', 'index')->name('index');
 });

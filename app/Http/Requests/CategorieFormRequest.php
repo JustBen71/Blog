@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleRequest extends FormRequest
+class CategorieFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,11 +22,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titrearticle' => 'required|string',
-            'descriptionarticle' => 'required|string',
-            'user_id' => 'required|exists:users,id',
-            'tags' => 'required|array|exists:tags,id',
-            'category_id' => 'required|exists:catgories|id',
+            'intituleCategorie' => 'required|string'
         ];
     }
 }

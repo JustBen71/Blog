@@ -2,21 +2,20 @@
 @section('contenu')
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-4">
 
             </div>
-            <div class="col-8">
-                <h1 class="text-center">Création d'un tag</h1>
+            <div class="col-4">
+                <h1 class="text-center">Modification d'un utilisateur</h1>
             </div>
-            <div class="col-2">
+            <div class="col-4">
 
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                @include('tags.form')
+                @include('users.form')
             </div>
         </div>
     </div>
-
 @endsection
