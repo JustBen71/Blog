@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleFormRequest;
 use App\Models\Article;
+use App\Models\Categorie;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class ArticleController extends Controller
@@ -25,9 +27,9 @@ class ArticleController extends Controller
     public function create()
     {
         $article = new Article();
-        $users = User::all();
         $tags = Tag::all();
-        return view('articles.new', ["article" => $article, "users" => $users, "tags" => $tags]);
+        $categories = Categorie::all();
+        return view('articles.new', ["article" => $article, "categories" => $categories, "tags" => $tags]);
     }
 
     /**
@@ -36,10 +38,10 @@ class ArticleController extends Controller
     public function store(ArticleFormRequest $request)
     {
         $article = Article::create([
-            'titrearticle' => $request->input('titrearticle'),
-            'descriptionarticle' => $request->input('descriptionarticle'),
-            'ageviser' => $request->input('ageviser'),
-            'user_id' => $request->input('user_id'),
+            'titreArticle' => $request->input('titreArticle'),
+            'contenuArticle' => $request->input('contenuArticle'),
+            'categorie_id' => $request->input('categorie'),
+            'user_id' => Auth::user()->id,
         ]);
 
         $article->tags()->sync($request->input('tags'));
@@ -71,10 +73,10 @@ class ArticleController extends Controller
     public function update(ArticleFormRequest $request, Article $article)
     {
         $article->update([
-            'titrearticle' => $request->input('titrearticle'),
-            'descriptionarticle' => $request->input('descriptionarticle'),
-            'ageviser' => $request->input('ageviser'),
-            'user_id' => $request->input('user_id'),
+            'titreArticle' => $request->input('titreArticle'),
+            'contenuArticle' => $request->input('contenuArticle'),
+            'categorie_id' => $request->input('categorie'),
+            'user_id' => Auth::user(),
         ]);
 
         $article->tags()->sync($request->input('tags'));

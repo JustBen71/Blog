@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginFormRequest;
+use App\Http\Requests\RegisterFormRequest;
 use App\Http\Requests\UserFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,12 +27,11 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function doLogin(LoginFormRequest $request) : View
+    public function doLogin(LoginFormRequest $request)
     {
         if(Auth::attempt($request->validated()))
         {
             $request->session()->regenerate();
-
             return redirect()->intended('/');
         }
 
@@ -42,7 +42,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         $request->session()->regenerate();
-        return redirect()->route("home");
+        return redirect()->route("accueil.home");
     }
 
     /**
@@ -57,12 +57,12 @@ class AuthController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LoginFormRequest $request)
+    public function store(RegisterFormRequest $request)
     {
         $user = User::create([
             'nomUtilisateur' => $request->input('nomUtilisateur'),
             'mailUtilisateur' => $request->input('mailUtilisateur'),
-            'passwordUtilisateur' => Hash::make($request->input('passwordUtilisateur')),
+            'password' => Hash::make($request->input('password')),
         ]);
 
         return redirect()->route('login')->with('success', 'Inscription réussit !');
@@ -73,7 +73,7 @@ class AuthController extends Controller
      */
     public function show(User $user): View
     {
-        return view('users.printOne', ['user' => $user]);
+        return view('users.show', ['user' => $user]);
     }
 
     /**
@@ -92,7 +92,7 @@ class AuthController extends Controller
         $user = User::create([
             'nomUtilisateur' => $request->input('nomUtilisateur'),
             'mailUtilisateur' => $request->input('mailUtilisateur'),
-            'passwordUtilisateur' => Hash::make($request->input('passwordUtilisateur')),
+            'password' => Hash::make($request->input('password')),
         ]);
         return redirect()->route('users.show', ['user' => $user->id])->with('success', 'L\'utilisateur a bien été modifié');
     }

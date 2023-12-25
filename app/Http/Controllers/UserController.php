@@ -39,7 +39,7 @@ class UserController extends BaseController
         $user = User::create([
             'nom' => $request->input('nomUtilisateur'),
             'prenom' => $request->input('mailUtilisateur'),
-            'age' => $request->input('passwordUtilisateur'),
+            'age' => $request->input('password'),
         ]);
 
         return redirect()->route('users.index', ["users" => User::all()])->with('success', 'L\'utilisateur a bien été crée');
