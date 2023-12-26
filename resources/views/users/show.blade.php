@@ -10,10 +10,8 @@
             <div class="col-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{$user->prenom}} {{$user->nom}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{$user->age}} ans</h6>
-                        <p class="card-text">{{$user->commentaire}}</p>
-                        <a href="mailto:{{$user->email}}" class="card-link">{{$user->email}}</a>
+                        <h5 class="card-title">{{$user->nomUtilisateur}}</h5>
+                        <a href="mailto:{{$user->mailUtilisateur}}" class="card-link">{{$user->mailUtilisateur}}</a>
                     </div>
                 </div>
             </div>
@@ -23,13 +21,13 @@
         </div>
         <div class="row mt-3">
             <div class="col-3">
-                <a class="btn btn-secondary" href="{{route('users.index')}}">Retour</a>
+                <a class="btn btn-secondary" href="{{route('accueil.home')}}">Retour</a>
             </div>
             <form method="POST" action="{{route('users.delete', ['user' => $user->id])}}">
                 @csrf
                 @method('DELETE')
                 <div class="col-3 mt-1">
-                    <button class="btn btn-danger" type="submit">Supprimer</button>
+                    <button class="btn btn-danger" type="submit">Supprimer mon compte</button>
                 </div>
             </form>
         </div>
