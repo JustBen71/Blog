@@ -13,7 +13,7 @@
                     <a class="nav-link" href="{{route("articles.index")}}">Consulter les articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("articles.new")}}">Gestion de nos articles</a>
+                    <a class="nav-link" href="{{route("articles.showByUser")}}">Gestion de nos articles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("categories.index")}}">Gestion des catégories</a>
