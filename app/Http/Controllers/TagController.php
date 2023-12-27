@@ -45,7 +45,7 @@ class TagController extends Controller
      */
     public function show(Tag $tag): View
     {
-        return view('tag.show', ['tag' => $tag]);
+        return view('tags.show', ['tag' => $tag]);
     }
 
     /**
@@ -53,7 +53,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('tag.edit', ["tag" => $tag]);
+        return view('tags.edit', ["tag" => $tag]);
     }
 
     /**
@@ -65,7 +65,7 @@ class TagController extends Controller
             'intituleTag' => $request->input('intituleTag'),
         ]);
 
-        return redirect()->route('tag.show', ['tag' => $tag->id])->with('success', 'Le tag a bien été modifié');
+        return redirect()->route('tags.show', ['tag' => $tag->id])->with('success', 'Le tag a bien été modifié');
     }
 
     /**
@@ -74,6 +74,6 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
-        return redirect()->route('tag.index', ["tag" => Tag::all()])->with('success', 'Le tag a bien été supprimé');;
+        return redirect()->route('tags.index', ["tag" => Tag::all()])->with('success', 'Le tag a bien été supprimé');;
     }
 }

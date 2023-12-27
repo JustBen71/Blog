@@ -13,16 +13,16 @@
                     <a class="nav-link" href="{{route("articles.index")}}">Consulter les articles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("articles.new")}}">Gestion de nos articles</a>
+                    <a class="nav-link" href="{{route("articles.showByUser")}}">Gestion de nos articles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("categories.index")}}">Gestion des catégories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route("tags.new")}}">Gestion des tags</a>
+                    <a class="nav-link" href="{{route("tags.index")}}">Gestion des tags</a>
                 </li>
                 @auth
-                    
+
                     <form action="{{route("logout")}}" method="post">
                         @csrf
                         @method('POST')

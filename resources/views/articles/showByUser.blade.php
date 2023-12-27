@@ -18,7 +18,7 @@
         <div class="row">
             @for($i = 0; $i < sizeof($articles); $i++)
                 @if($i % 4 == 0 && $i > 0)
-                    </div>
+                </div>
                 @endif
                 @if($i % 4 == 0)
                     <div class="row mt-2">
@@ -39,7 +39,7 @@
                                 <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
                             </div>
                         </div>
-                @else
+                        @else
                             <div class="col-3">
                                 <div class="card border-secondary mb-3" style="max-width: 18rem;">
                                     <div class="card-header bg-transparent border-secondary text-center">{{$articles[$i]->titreArticle}} <br>
@@ -53,8 +53,8 @@
                                     <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
                                 </div>
                             </div>
-                       @endif
-            @endfor
-        </div>
+                        @endif
+                        @endfor
+                    </div>
     </div>
 @endsection

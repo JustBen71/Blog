@@ -57,6 +57,12 @@ class ArticleController extends Controller
         return view('articles.show', ['article' => $article]);
     }
 
+    public function showByUser(): View
+    {
+        $articles = Article::where('user_id', Auth::user()->id)->get();
+        return view('articles.showByUser', ['articles' => $articles]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

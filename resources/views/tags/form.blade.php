@@ -1,7 +1,7 @@
 <form method="POST" action="{{route($tag->id?'tags.update':'tags.store', $tag->id?["tag"=> $tag->id]: [])}}">
     @csrf
     @method($tag->id?'PUT':'POST')
-    <div class="container">
+    <div class="container mt-2">
         <div class="row">
             <div class="col-8">
                 <div class="container">
