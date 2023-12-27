@@ -64,7 +64,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect()->route('login')->with('success', 'Inscription réussit !');
+        return redirect()->route('login')->with('success', 'Inscription réussie !');
     }
 
     /**

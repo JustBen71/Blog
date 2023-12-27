@@ -2,6 +2,8 @@
 
 @section('titre', 'Users')
 
+@section('titrePage', 'Gestion des utilisateurs')
+
 @section('contenu')
     <div class="container mt-3">
         <div class="row">

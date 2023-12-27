@@ -1,18 +1,9 @@
 @extends('layout')
+
+@section('titrePage', 'Connexion')
+
 @section('contenu')
     <form method="POST" class="vstack gap-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-2">
-
-                </div>
-                <div class="col-8">
-                    <h1 class="text-center">Login</h1>
-                </div>
-                <div class="col-2">
-
-                </div>
-            </div>
             <div class="row">
                 <div class="col-6">
                 @csrf

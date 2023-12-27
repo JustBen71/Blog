@@ -2,6 +2,8 @@
 
 @section('titre', 'Accueil')
 
+@section('titrePage', 'Liste des catégories')
+
 @section('contenu')
     <div class="container">
         <div class="row">

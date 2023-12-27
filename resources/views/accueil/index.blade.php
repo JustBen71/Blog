@@ -2,18 +2,16 @@
 
 @section('titre', 'Accueil')
 
+
+@auth
+    @section('titrePage', 'Bonjour '.$user->nomUtilisateur.', voici les articles tendances')
+@endauth
+@guest
+    @section('titrePage', 'Articles tendances !')
+@endguest
+
 @section('contenu')
     <div class="container">
-        <div class="row">
-            <div class="text-center col-12">
-                @auth
-                    <h1>Bonjour {{$user->nomUtilisateur}}, voici les articles tendances</h1>
-                @endauth
-                @guest
-                    <h1>Articles tendances !</h1>
-                @endguest
-            </div>
-        </div>
         <div class="row">
             @for($i = 0; $i < sizeof($articles); $i++)
                 @if($i % 4 == 0 && $i > 0)

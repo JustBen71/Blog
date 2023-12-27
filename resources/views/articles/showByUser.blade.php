@@ -2,6 +2,8 @@
 
 @section('titre', 'Accueil')
 
+@section('titrePage', 'Gestion de mes articles')
+
 @section('contenu')
     <div class="container">
         <div class="row mt-2">

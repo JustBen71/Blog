@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('titre', 'Accueil')
+@section('titre', 'Articles')
+
+@section('titrePage', 'Liste des articles')
 
 @section('contenu')
     <div class="container">
