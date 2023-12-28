@@ -58,13 +58,26 @@ class AuthController extends Controller
      */
     public function store(LoginFormRequest $request)
     {
-        $user = User::create([
-            'nomUtilisateur' => $request->input('nomUtilisateur'),
-            'mailUtilisateur' => $request->input('mailUtilisateur'),
-            'password' => Hash::make($request->input('password')),
-        ]);
+        if($this -> selectByMail($request->input('mailUtilisateur')) == null) {
+            $user = User::create([
+                'nomUtilisateur' => $request->input('nomUtilisateur'),
+                'mailUtilisateur' => $request->input('mailUtilisateur'),
+                'password' => Hash::make($request->input('password')),
+            ]);
 
-        return redirect()->route('login')->with('success', 'Inscription réussie !');
+            return redirect()->route('login')->with('success', 'Inscription réussie !');
+        } else {
+            return redirect()->route('login')->with('fail', 'Utilisateur déjà existant.');
+        }
+    }
+
+    /**
+     * Méthode permettant de vérifier si un utilisateur existe déjà ou non par rapport à son email.
+     * @param $mail : adresse mail à tester
+     * @return l'utilisateur trouvé ou null sinon
+     */
+    public function selectByMail($mail) {
+        return User::where('mailUtilisateur', '=', $mail)->get();
     }
 
     /**
