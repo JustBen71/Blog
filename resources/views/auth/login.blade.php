@@ -4,8 +4,8 @@
 
 @section('contenu')
     <form method="POST" class="vstack gap-3">
-            <div class="row">
-                <div class="col-6">
+            <div class="row justify-content-center">
+                <div class="col-4">
                 @csrf
                 <div class="form-group">
                     <label for="mailUtilisateur">Email :</label>
@@ -18,15 +18,15 @@
 
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
+            <div class="row justify-content-center">
+                <div class="col-4">
                     <div class="form-group">
                         <label for="password">Mot de passe :</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
                 </div>
             </div>
-            <div class="row mt-2">
+            <div class="row mt-2 text-center">
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Se connecter</button>
                 </div>
