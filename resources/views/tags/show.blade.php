@@ -11,7 +11,7 @@
 
             </div>
             <div class="col-4">
-                Nom catégorie : {{$tag->intituleTag}}
+                Intitulé du tag : {{$tag->intituleTag}}
             </div>
             <div class="col-4">
 

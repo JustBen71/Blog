@@ -11,7 +11,7 @@
                 <table class="table table-striped">
                     <thead>
                     <th>Numéro</th>
-                    <th>Nom catégorie</th>
+                    <th>Intitulé</th>
                     <th>Outils</th>
                     </thead>
                     <tbody>
