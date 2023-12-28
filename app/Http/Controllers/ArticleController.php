@@ -46,7 +46,7 @@ class ArticleController extends Controller
 
         $article->tags()->sync($request->input('tags'));
 
-        return redirect()->route('articles.index', ["articles" => Article::all()])->with('success', 'L\'article a bien été crée');
+        return redirect()->route('articles.index', ["articles" => Article::all()])->with('success', 'L\'article a bien été créé.');
     }
 
     /**

@@ -58,7 +58,7 @@
                 </table>
             </div>
             <div class="col-4">
-                <a class="btn btn-primary" href="{{route('tags.new')}}">Crée tag</a>
+                <a class="btn btn-primary" href="{{route('tags.new')}}">Créer un tag</a>
             </div>
         </div>
     </div>

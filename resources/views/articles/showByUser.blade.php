@@ -53,7 +53,7 @@
                                     @endforeach
                                     <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p>
                                 </div>
-                                <div class="card-footer bg-transparent border-secondary">Crée le {{$articles[$i]->created_at->format('d/m/Y')}}</div>
+                                <div class="card-footer bg-transparent border-secondary">Créé le {{$articles[$i]->created_at->format('d/m/Y')}}</div>
                             </div>
                         </div>
                         @else
@@ -83,7 +83,7 @@
                                     <div class="card-body">
                                         <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p>
                                     </div>
-                                    <div class="card-footer bg-transparent border-secondary">Crée le {{$articles[$i]->created_at->format('d/m/Y')}}</div>
+                                    <div class="card-footer bg-transparent border-secondary">Créé le {{$articles[$i]->created_at->format('d/m/Y')}}</div>
                                 </div>
                             </div>
                         @endif

@@ -42,7 +42,7 @@ class UserController extends BaseController
             'age' => $request->input('password'),
         ]);
 
-        return redirect()->route('users.index', ["users" => User::all()])->with('success', 'L\'utilisateur a bien été crée');
+        return redirect()->route('users.index', ["users" => User::all()])->with('success', 'L\'utilisateur a bien été créé.');
     }
 
     /**

@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-10">
                 <div>
-                    Crée par {{$article->user->nomUtilisateur}} le {{$article->created_at->format('d/m/Y H:m:s')}}
+                    Créé par {{$article->user->nomUtilisateur}} le {{$article->created_at->format('d/m/Y H:m:s')}}
                 </div>
             </div>
         </div>
