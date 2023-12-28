@@ -21,11 +21,27 @@
         </div>
         <label>Description :</label>
         <div class="row">
-            <div class="col-12">
+            <div class="col-8">
                 <div class="card">
                     <div class="card-body">
                         {!! $article->contenuArticle !!}
                     </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="badge rounded-pill bg-secondary">{{$article->categorie->intituleCategorie}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <div>
+                    Crée par {{$article->user->nomUtilisateur}} le {{$article->created_at->format('d/m/Y H:m:s')}}
                 </div>
             </div>
         </div>
