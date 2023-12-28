@@ -37,7 +37,7 @@ class TagController extends Controller
             'intituleTag' => $request->input('intituleTag')
         ]);
 
-        return redirect()->route('accueil.home')->with('success', 'Le tag "'.$tag->intituleTag.'" a bien été crée');
+        return redirect()->route('tags.index')->with('success', 'Le tag "'.$tag->intituleTag.'" a bien été crée');
     }
 
     /**
