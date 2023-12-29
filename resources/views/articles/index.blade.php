@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('titre', 'Accueil')
+@section('titre', 'Articles')
+
+@section('titrePage', 'Liste des articles')
 
 @section('contenu')
     <div class="container">
@@ -36,7 +38,7 @@
                                     <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p>
                                     <a href="{{route('articles.show', ["article" => $articles[$i]])}}" class="stretched-link"></a>
                                 </div>
-                                <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
+                                <div class="card-footer bg-transparent border-secondary">Créé par {{$articles[$i]->user->nomUtilisateur}} le {{$articles[$i]->created_at->format('d/m/Y')}}</div>
                             </div>
                         </div>
                 @else
@@ -50,7 +52,7 @@
                                     <div class="card-body">
                                         <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p><a href="{{route('articles.show', ["article" => $articles[$i]])}}" class="stretched-link"></a>
                                     </div>
-                                    <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
+                                    <div class="card-footer bg-transparent border-secondary">Créé par {{$articles[$i]->user->nomUtilisateur}} le {{$articles[$i]->created_at->format('d/m/Y')}} </div>
                                 </div>
                             </div>
                        @endif

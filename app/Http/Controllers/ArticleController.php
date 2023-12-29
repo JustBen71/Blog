@@ -40,13 +40,13 @@ class ArticleController extends Controller
         $article = Article::create([
             'titreArticle' => $request->input('titreArticle'),
             'contenuArticle' => $request->input('contenuArticle'),
-            'categorie_id' => $request->input('categorie'),
+            'categorie_id' => $request->input('category_id'),
             'user_id' => Auth::user()->id,
         ]);
 
         $article->tags()->sync($request->input('tags'));
 
-        return redirect()->route('articles.index', ["articles" => Article::all()])->with('success', 'L\'article a bien été crée');
+        return redirect()->route('articles.index', ["articles" => Article::all()])->with('success', 'L\'article a bien été créé.');
     }
 
     /**
@@ -68,9 +68,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        $users = User::all();
         $tags = Tag::all();
-        return view('articles.edit', ["article" => $article, "users" => $users, "tags" => $tags]);
+        $categories = Categorie::all();
+        return view('articles.edit', ["article" => $article, "tags" => $tags, "categories" => $categories]);
     }
 
     /**
@@ -81,8 +81,8 @@ class ArticleController extends Controller
         $article->update([
             'titreArticle' => $request->input('titreArticle'),
             'contenuArticle' => $request->input('contenuArticle'),
-            'categorie_id' => $request->input('categorie'),
-            'user_id' => Auth::user(),
+            'categorie_id' => $request->input('category_id'),
+            'user_id' => Auth::user()->id,
         ]);
 
         $article->tags()->sync($request->input('tags'));
@@ -96,6 +96,6 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('articles.index', ["articles" => Article::all()])->with('success', 'L\'article a bien été supprimé');;
+        return redirect()->route('articles.showByUser')->with('success', 'L\'article a bien été supprimé');;
     }
 }

@@ -2,6 +2,8 @@
 
 @section('titre', 'Users')
 
+@section('titrePage', 'Liste des utilisateurs')
+
 @section('contenu')
     <table class="table">
         <thead>

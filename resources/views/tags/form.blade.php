@@ -7,7 +7,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-9">
-                            <label for="intituleTag">Nom de la catégorie : </label>
+                            <label for="intituleTag">Intitulé du tag : </label>
                             <input class="form-control" type="text" id="intituleTag" name="intituleTag" value="{{old('intituleTag') ? '' : $tag->intituleTag}}">
                             @error('intituleTag')
                             <div class="alert alert-danger">{{$message}}</div>

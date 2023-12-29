@@ -23,7 +23,13 @@
                 {{ session('fail') }}
             </div>
         @endif
-    @yield('contenu')
+
+        <div class="text-center col-12">
+            <h1 class="m-3">@yield('titrePage')</h1>
+        </div>
+        <div class="divContent col-10 p-3">
+            @yield('contenu')
+        </div>
 </main>
 </body>
 </html>

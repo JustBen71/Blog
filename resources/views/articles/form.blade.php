@@ -32,7 +32,7 @@
                             <label>Catégorie</label>
                             <select class="form-control" name="category_id">
                                 @foreach($categories as $categorie)
-                                    <option value="{{$categorie->id}}">{{$categorie->intituleCategorie}}</option>
+                                    <option value="{{$categorie->id}}" @selected(old('categorie_id', $article->categorie_id) == $categorie->id)>{{$categorie->intituleCategorie}}</option>
                                 @endforeach
                             </select>
                             @error('categorie')
