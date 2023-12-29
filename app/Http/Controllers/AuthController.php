@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginFormRequest;
-use App\Http\Requests\UserFormRequest;
+use App\Http\Requests\RegisterFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class AuthController extends Controller
@@ -56,9 +55,8 @@ class AuthController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(LoginFormRequest $request)
+    public function store(RegisterFormRequest $request)
     {
-        if($this -> selectByMail($request->input('mailUtilisateur')) == null) {
             $user = User::create([
                 'nomUtilisateur' => $request->input('nomUtilisateur'),
                 'mailUtilisateur' => $request->input('mailUtilisateur'),
@@ -66,18 +64,6 @@ class AuthController extends Controller
             ]);
 
             return redirect()->route('login')->with('success', 'Inscription réussie !');
-        } else {
-            return redirect()->route('login')->with('fail', 'Utilisateur déjà existant.');
-        }
-    }
-
-    /**
-     * Méthode permettant de vérifier si un utilisateur existe déjà ou non par rapport à son email.
-     * @param $mail : adresse mail à tester
-     * @return l'utilisateur trouvé ou null sinon
-     */
-    public function selectByMail($mail) {
-        return User::where('mailUtilisateur', '=', $mail)->get();
     }
 
     /**
