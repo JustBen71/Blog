@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterFormRequest extends FormRequest
 {
@@ -21,9 +22,12 @@ class RegisterFormRequest extends FormRequest
      */
     public function rules(): array
     {
+        $rulesMail = 'required|email';
+        if(Auth::user() == null)
+            $rulesMail .= '|unique:users,mailUtilisateur';
         return [
             'nomUtilisateur' => 'required|string',
-            'mailUtilisateur' => 'required|email|unique:users,mailUtilisateur',
+            'mailUtilisateur' => $rulesMail,
             'password' => 'required|string|min:8|confirmed'
         ];
     }
