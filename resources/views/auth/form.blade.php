@@ -41,6 +41,9 @@
                 <div class="col-3 mt-1">
                     <button class="btn btn-primary" type="submit">Modifier mon profil</button>
                 </div>
+                <div class="col-3 mt-1">
+                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Suppression du compte</a>
+                </div>
             @endauth
             @guest
                 <div class="col-3 mt-1">
@@ -50,3 +53,26 @@
         </div>
     </div>
 </form>
+@auth
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Suppresion du compte</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Voulez vous vraiment supprimer votre profil ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <form method="POST" action="{{route($user->id?'auth.delete':'delete')}}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-primary" type="submit">Supprimer mon profil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endauth

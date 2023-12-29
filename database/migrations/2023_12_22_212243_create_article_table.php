@@ -25,7 +25,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained()
                 ->onUpdate("restrict")
-                ->onDelete("SET NULL");
+                ->onDelete("CASCADE");
         });
         Schema::table('articles', function(Blueprint $table)
         {

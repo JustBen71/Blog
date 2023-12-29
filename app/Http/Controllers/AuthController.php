@@ -99,9 +99,10 @@ class AuthController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy()
     {
+        $user = Auth::user();
         $user->delete();
-        return redirect()->route('auth.index', ["users" => User::all()])->with('success', 'L\'utilisateur a bien été supprimé');;
+        return redirect()->route('accueil.home')->with('success', 'L\'utilisateur a bien été supprimé.');
     }
 }

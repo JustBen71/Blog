@@ -61,5 +61,6 @@ Route::post('/login', [AuthController::class, 'doLogin']);
 
 Route::get('/auth', [AuthController::class, 'show'])->name("auth.show");
 Route::put('/auth', [AuthController::class, 'update'])->name("auth.update");
+Route::delete('/auth', [AuthController::class, 'destroy'])->name("auth.delete");
 
 Route::post('/logout', [AuthController::class, 'logout'])->name("logout");
