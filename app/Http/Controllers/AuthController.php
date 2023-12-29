@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function index() : View
     {
-        return view('users.index', ["users" => User::all()]);
+        return view('auth.index', ["users" => User::all()]);
     }
 
     public function login() : View
@@ -33,7 +33,7 @@ class AuthController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->with('fail', 'Les informations d\'identification ne sont pas bon')->onlyInput('email');
+        return back()->with('fail', 'L\'authentification a échouée. Veuillez vérifier votre email et votre mot de passe.')->onlyInput('email');
     }
 
     public function logout(Request $request)
@@ -69,9 +69,9 @@ class AuthController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user): View
+    public function show(): View
     {
-        return view('users.show', ['user' => $user]);
+        return view('auth.show', ['user' => Auth::user()]);
     }
 
     /**
@@ -79,20 +79,21 @@ class AuthController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', ["user" => $user]);
+        return view('auth.edit', ["user" => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(LoginFormRequest $request, User $user)
+    public function update(RegisterFormRequest $request)
     {
-        $user = User::create([
+        $user = Auth::user();
+        $user->update([
             'nomUtilisateur' => $request->input('nomUtilisateur'),
             'mailUtilisateur' => $request->input('mailUtilisateur'),
             'password' => Hash::make($request->input('password')),
         ]);
-        return redirect()->route('users.show', ['user' => $user->id])->with('success', 'L\'utilisateur a bien été modifié');
+        return redirect()->route('auth.show', ['user' => $user->id])->with('success', 'L\'utilisateur a bien été modifié');
     }
 
     /**
@@ -101,6 +102,6 @@ class AuthController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index', ["users" => User::all()])->with('success', 'L\'utilisateur a bien été supprimé');;
+        return redirect()->route('auth.index', ["users" => User::all()])->with('success', 'L\'utilisateur a bien été supprimé');;
     }
 }

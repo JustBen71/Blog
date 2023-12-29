@@ -22,7 +22,9 @@
                     <a class="nav-link" href="{{route("tags.index")}}">Gestion des tags</a>
                 </li>
                 @auth
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route("auth.show")}}">Mon profil</a>
+                    </li>
                     <form action="{{route("logout")}}" method="post">
                         @csrf
                         @method('POST')

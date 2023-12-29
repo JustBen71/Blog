@@ -1,4 +1,4 @@
-<form method="POST"  enctype="multipart/form-data">
+<form method="POST" action="{{route($user->id?'auth.update':'register')}}">
     @csrf
     @method($user->id?'PUT':'POST')
     <div class="container">
@@ -37,9 +37,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3 mt-1">
-                <button class="btn btn-primary" type="submit">Envoyer</button>
-            </div>
+            @auth
+                <div class="col-3 mt-1">
+                    <button class="btn btn-primary" type="submit">Modifier mon profil</button>
+                </div>
+            @endauth
+            @guest
+                <div class="col-3 mt-1">
+                    <button class="btn btn-primary" type="submit">Créer mon profil</button>
+                </div>
+            @endguest
         </div>
     </div>
 </form>

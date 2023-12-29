@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\ArticleUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\TagController;
-use App\Http\Requests\CategorieFormRequest;
-use App\Http\Requests\TagFormRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,5 +58,8 @@ Route::post('/register', [AuthController::class, 'store']);
 
 Route::get('/login', [AuthController::class, 'login'])->name("login");
 Route::post('/login', [AuthController::class, 'doLogin']);
+
+Route::get('/auth', [AuthController::class, 'show'])->name("auth.show");
+Route::put('/auth', [AuthController::class, 'update'])->name("auth.update");
 
 Route::post('/logout', [AuthController::class, 'logout'])->name("logout");

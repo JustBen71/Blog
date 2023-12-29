@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('titrePage', 'Connexion')
+@section('titrePage', 'Mon profil')
 
 @section('contenu')
     <div class="container">
