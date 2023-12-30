@@ -6,8 +6,6 @@ use App\Http\Requests\ArticleFormRequest;
 use App\Models\Article;
 use App\Models\Categorie;
 use App\Models\Tag;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -18,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index() : View
     {
-        return view('articles.index', ["articles" => Article::all()]);
+        return view('articles.index', ["articles" => Article::query()->paginate(12)]);
     }
 
     /**
@@ -59,7 +57,7 @@ class ArticleController extends Controller
 
     public function showByUser(): View
     {
-        $articles = Article::where('user_id', Auth::user()->id)->get();
+        $articles = Article::where('user_id', Auth::user()->id)->paginate(12);
         return view('articles.showByUser', ['articles' => $articles]);
     }
 

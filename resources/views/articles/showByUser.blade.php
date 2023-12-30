@@ -88,6 +88,10 @@
                             </div>
                         @endif
                         @endfor
+                        <!-- Pagination -->
+                        <ul class="pagination justify-content-center mb-4">
+                            {{$articles->links("pagination::bootstrap-4")}}
+                        </ul>
                     </div>
     </div>
 @endsection
