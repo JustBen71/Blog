@@ -61,5 +61,9 @@
                 <a class="btn btn-primary" href="{{route('categories.new')}}">Créer une catégorie</a>
             </div>
         </div>
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+            {{$categories->links("pagination::bootstrap-4")}}
+        </ul>
     </div>
 @endsection

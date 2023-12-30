@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleFormRequest;
 use App\Http\Requests\CategorieFormRequest;
 use App\Models\Article;
 use App\Models\Categorie;
-use App\Models\Tag;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class CategorieController extends Controller
@@ -19,7 +14,7 @@ class CategorieController extends Controller
      */
     public function index() : View
     {
-        return view('categories.index', ["categories" => Categorie::all()]);
+        return view('categories.index', ["categories" => Categorie::query()->paginate(5)]);
     }
 
     /**
