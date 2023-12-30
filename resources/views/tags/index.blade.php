@@ -61,5 +61,9 @@
                 <a class="btn btn-primary" href="{{route('tags.new')}}">Créer un tag</a>
             </div>
         </div>
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+            {{$tags->links("pagination::bootstrap-4")}}
+        </ul>
     </div>
 @endsection

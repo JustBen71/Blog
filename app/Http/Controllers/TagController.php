@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategorieFormRequest;
 use App\Http\Requests\TagFormRequest;
-use App\Models\Article;
-use App\Models\Categorie;
 use App\Models\Tag;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class TagController extends Controller
@@ -17,7 +13,7 @@ class TagController extends Controller
      */
     public function index() : View
     {
-        return view('tags.index', ["tags" => Tag::all()]);
+        return view('tags.index', ["tags" => Tag::query()->paginate(5)]);
     }
 
     /**
