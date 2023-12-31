@@ -7,12 +7,6 @@
 @section('contenu')
     <div class="container">
         <div class="row mt-2">
-            <div class="col-4">
-                <input class="form-control" type="search" placeholder="Titre de l'article ..."/>
-            </div>
-            <div class="col-6">
-
-            </div>
             <div class="col-2">
                 <a class="btn boutonPrincipal" href="{{route('articles.new')}}">Créé un article</a>
             </div>
