@@ -1,15 +1,50 @@
+*{
+    --gris: #DCDFDA;
+    --vertKaki: #4B5943;
+
+    --bs-pagination-color: var(--vertKaki);
+    --bs-pagination-bg: var(--gris);
+    --bs-pagination-border-color: #ADB4A8;
+    --bs-pagination-hover-color: var(--gris);
+    --bs-pagination-hover-bg: #647759;
+    --bs-pagination-hover-border-color: #647759;
+    --bs-pagination-focus-color: var(--gris);
+    --bs-pagination-focus-bg: #647759;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(60, 72, 64, 0.25);
+    --bs-pagination-active-color: var(--gris);
+    --bs-pagination-active-bg: var(--vertKaki);
+    --bs-pagination-active-border-color: var(--vertKaki);
+}
+
 body {
     background-image: url("../img/fond.jpg");
     background-size: cover;
 }
 
+#barreNavigation{
+    background-color: var(--gris);
+    border-bottom: var(--vertKaki) solid;
+}
+
 h1{
-    color: #4B5943;
+    color: var(--vertKaki);
 }
 
 .divContent{
-    background-color: #8FB43A;
+    background-color: rgba(143,180,68,0.8);
     margin: auto;
-    border: solid;
-    border-color: #4B5943;
+    border: solid var(--vertKaki);
+}
+
+.divContent input{
+    background-color: var(--gris);
+}
+
+.boutonPrincipal {
+    background-color: var(--vertKaki);
+    color: var(--gris);
+}
+
+.boutonPrincipal:hover {
+    background-color: #647759;
 }

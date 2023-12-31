@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav id="barreNavigation" class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route("accueil.home")}}"><img height="48" width="48" src="{{ asset('img/frog.png') }}"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
