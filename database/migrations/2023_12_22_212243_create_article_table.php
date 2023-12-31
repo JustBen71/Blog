@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('titreArticle');
-            $table->string('contenuArticle');
+            $table->string('contenuArticle', 10000);
             $table->timestamps();
         });
         Schema::table('articles', function(Blueprint $table)

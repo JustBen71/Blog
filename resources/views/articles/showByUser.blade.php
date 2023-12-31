@@ -49,7 +49,7 @@
                                         <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
                                     @endforeach
                                 </div><br>
-                                <div class="card-body overflow-hidden">
+                                <div class="card-body card-body-custom overflow-hidden">
                                     <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-secondary">Créé le {{$articles[$i]->created_at->format('d/m/Y')}}</div>
@@ -87,7 +87,7 @@
                                             <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
                                         @endforeach
                                     </div><br>
-                                    <div class="card-body overflow-hidden">
+                                    <div class="card-body card-body-custom overflow-hidden">
                                         <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p>
                                     </div>
                                     <div class="card-footer bg-transparent border-secondary">Créé le {{$articles[$i]->created_at->format('d/m/Y')}}</div>

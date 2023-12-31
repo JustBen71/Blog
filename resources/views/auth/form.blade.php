@@ -22,7 +22,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-6">
-                <label for="password">Password : </label>
+                <label for="password">Mot de passe : </label>
                 <input class="form-control" type="password" id="password" name="password" value="">
                 @error('password')
                 <div class="alert alert-danger">{{$message}}</div>

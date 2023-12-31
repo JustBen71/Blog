@@ -23,7 +23,7 @@ class ArticleFormRequest extends FormRequest
     {
         return [
             'titreArticle' => 'required|string',
-            'contenuArticle' => 'required|string',
+            'contenuArticle' => 'required|string|max:9999',
             'tags' => 'required|array|exists:tags,id',
             'category_id' => 'required|exists:categories,id',
         ];
