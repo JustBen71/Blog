@@ -34,6 +34,7 @@ h1{
     background-color: rgba(143,180,68,0.8);
     margin: auto;
     border: solid var(--vertKaki);
+    margin-bottom: 20px;
 }
 
 .divContent input{
@@ -47,4 +48,8 @@ h1{
 
 .boutonPrincipal:hover {
     background-color: #647759;
+}
+
+.card-body {
+    height: 10rem;
 }

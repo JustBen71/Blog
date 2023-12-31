@@ -26,7 +26,7 @@
                                     <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
                                 @endforeach
                             </div><br>
-                            <div class="card-body">
+                            <div class="card-body overflow-hidden">
                                 <p class="card-text">{!! $articles[$i]->contenuArticle !!}</p><a href="{{route('articles.show', ["article" => $articles[$i]])}}" class="stretched-link"></a>
                             </div>
                             <div class="card-footer bg-transparent border-secondary">Créateur : {{$articles[$i]->user->nomUtilisateur}} </div>
