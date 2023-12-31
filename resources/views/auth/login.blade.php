@@ -28,7 +28,7 @@
             </div>
             <div class="row mt-2 text-center">
                 <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Se connecter</button>
+                    <button class="btn boutonPrincipal" type="submit">Se connecter</button>
                 </div>
             </div>
         </div>

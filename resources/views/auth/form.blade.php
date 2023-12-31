@@ -39,15 +39,15 @@
         <div class="row">
             @auth
                 <div class="col-3 mt-1">
-                    <button class="btn btn-primary" type="submit">Modifier mon profil</button>
+                    <button class="btn boutonPrincipal" type="submit">Modifier mon profil</button>
                 </div>
                 <div class="col-3 mt-1">
-                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Suppression du compte</a>
+                    <a class="btn boutonPrincipal" data-bs-toggle="modal" data-bs-target="#exampleModal">Suppression du compte</a>
                 </div>
             @endauth
             @guest
                 <div class="col-3 mt-1">
-                    <button class="btn btn-primary" type="submit">Créer mon profil</button>
+                    <button class="btn boutonPrincipal" type="submit">Créer mon profil</button>
                 </div>
             @endguest
         </div>
@@ -69,7 +69,7 @@
                 <form method="POST" action="{{route($user->id?'auth.delete':'delete')}}">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-primary" type="submit">Supprimer mon profil</button>
+                    <button class="btn boutonPrincipal" type="submit">Supprimer mon profil</button>
                 </form>
             </div>
         </div>

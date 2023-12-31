@@ -58,7 +58,7 @@
                 </table>
             </div>
             <div class="col-4">
-                <a class="btn btn-primary" href="{{route('categories.new')}}">Créer une catégorie</a>
+                <a class="btn boutonPrincipal" href="{{route('categories.new')}}">Créer une catégorie</a>
             </div>
         </div>
         <!-- Pagination -->

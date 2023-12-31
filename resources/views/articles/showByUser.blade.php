@@ -14,7 +14,7 @@
 
             </div>
             <div class="col-2">
-                <a class="btn btn-primary" href="{{route('articles.new')}}">Créé un article</a>
+                <a class="btn boutonPrincipal" href="{{route('articles.new')}}">Créé un article</a>
             </div>
         </div>
         <div class="row">
