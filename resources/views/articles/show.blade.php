@@ -11,9 +11,14 @@
 
             </div>
             <div class="col-4">
-                <h2>{{$article->titreArticle}}</h2>@foreach($article->tags as $tag)
-                    <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
-                @endforeach
+                <h2>{{$article->titreArticle}}</h2>
+                @if($article->tag == null)
+                    @foreach($article->tags as $tag)
+                        <span class="badge rounded-pill text-bg-danger">{{$tag->intituleTag}}</span>
+                    @endforeach
+                @else
+                    <span class="badge rounded-pill text-bg-danger">Pas de tag</span>
+                @endif
             </div>
             <div class="col-4">
 
@@ -32,7 +37,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <span class="badge rounded-pill bg-secondary">{{$article->categorie->intituleCategorie}}</span>
+                            @if($article->categorie == null)
+                                <span class="badge rounded-pill bg-secondary"> Aucune Catégorie </span>
+                            @else
+                                <span class="badge rounded-pill bg-secondary">{{$article->categorie->intituleCategorie}}</span>
+                            @endif
                         </div>
                     </div>
                 </div>

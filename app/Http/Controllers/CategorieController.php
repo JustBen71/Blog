@@ -33,7 +33,7 @@ class CategorieController extends Controller
         $categorie = Categorie::create([
             'intituleCategorie' => $request->input('intituleCategorie'),
         ]);
-        return redirect()->route('accueil.home')->with('success', 'La catégorie a bien été créée.');
+        return redirect()->route('categories.index')->with('success', 'La catégorie a bien été créée.');
     }
 
     /**
