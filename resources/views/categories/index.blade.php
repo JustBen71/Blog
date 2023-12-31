@@ -6,13 +6,13 @@
 
 @section('contenu')
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-8">
                 <table class="table table-striped">
                     <thead>
                         <th>Numéro</th>
                         <th>Nom catégorie</th>
-                        <th class="text-center">Outils</th>
+                        <th class="text-center"><a class="btn boutonPrincipal" href="{{route('categories.new')}}"><i class="fa-solid fa-plus"></i></a></th>
                     </thead>
                     <tbody>
                         @foreach($categories as $categorie)
@@ -56,9 +56,6 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-            <div class="col-4">
-                <a class="btn boutonPrincipal" href="{{route('categories.new')}}">Créer une catégorie</a>
             </div>
         </div>
         <!-- Pagination -->

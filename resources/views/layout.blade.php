@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <script src="https://kit.fontawesome.com/516de91e6a.js" crossorigin="anonymous"></script>
     <title>@yield('titre')</title>
 </head>
 <body>

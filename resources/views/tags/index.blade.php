@@ -6,13 +6,13 @@
 
 @section('contenu')
     <div class="container">
-        <div class="row mt-2">
+        <div class="row mt-2 justify-content-center">
             <div class="col-8">
                 <table class="table table-striped">
                     <thead>
                     <th>Numéro</th>
                     <th>Intitulé</th>
-                    <th>Outils</th>
+                    <th class="text-center"><a class="btn boutonPrincipal" href="{{route('tags.new')}}"><i class="fa-solid fa-plus"></i></a></th>
                     </thead>
                     <tbody>
                     @foreach($tags as $tag)
@@ -56,9 +56,6 @@
                     @endforeach
                     </tbody>
                 </table>
-            </div>
-            <div class="col-4">
-                <a class="btn boutonPrincipal" href="{{route('tags.new')}}">Créer un tag</a>
             </div>
         </div>
         <!-- Pagination -->
