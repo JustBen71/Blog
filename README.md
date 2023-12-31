@@ -64,3 +64,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+### Lancement du projet
+1. Récuperer via un git pull le projet
+2. Utiliser un environnement comme WAMP
+3. Extraire / Déplacer le projet dans le répertoire wwww
+4. Effectuer une migration avec la commande php artisan migrate --force
+5. Avec un CMD faire php artisan serv dans le répertoire du projet
+6. Dans un navigateur accèder au site avec l'url [Laracasts](https://localhost:8000)
+
+## Accescible sur un site distant
+Le projet est accesscible aussi sur une url public pendant le début du mois de janvier ( sous réserve que le matériel fonctionne ).
+Url du site : [Laracasts](http://87.90.122.11)
